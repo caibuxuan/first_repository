@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>  
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="questionNameSpace">
+    <resultMap id="QuestionResultMap" type="com.cbx.exam_system.entity.Question">
+        <id column="q_id" property="qId" jdbcType="INTEGER" />
+        <result column="q_type" property="qType" jdbcType="INTEGER" />
+        <result column="q_exam_type" property="qExamType" jdbcType="INTEGER" />
+        <result column="q_title" property="qTitle" jdbcType="VARCHAR"/>
+        <result column="q_options" property="qOptions" jdbcType="VARCHAR" />
+        <result column="q_exam_answer" property="qExamAnswer" jdbcType="VARCHAR" />
+        <result column="q_right_answer" property="qRightAnswer" jdbcType="VARCHAR" />
+        <result column="q_analysis" property="qAnalysis" jdbcType="VARCHAR" />
+        <result column="q_score" property="qScore" jdbcType="VARCHAR" />
+    </resultMap>
+
+    <!-- 添加一个用户 -->
+    <insert id="insertQuestion" parameterType="com.cbx.exam_system.entity.Question">
+        INSERT INTO
+        question(q_type,q_title,q_options,q_exam_answer,q_right_answer,q_analysis,q_score,q_exam_type) VALUES
+        (#{qType},#{qTitle},#{qOptions},#{qExamAnswer},#{qRightAnswer},#{qAnalysis},#{qScore},#{qExamType})
+    </insert>
+
+</mapper> 
